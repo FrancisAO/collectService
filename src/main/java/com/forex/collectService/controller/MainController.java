@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 	
 	@RequestMapping(path="/", method = RequestMethod.GET)
-	public String doit(){
-		System.out.println("MainController - it works");
-		return "classpath:forex-trading-overview";
+	public String mainPage(){
+		return "Hello world :-)";
 	}
 
 }
