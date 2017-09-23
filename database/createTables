@@ -1,0 +1,8 @@
+create table cpsaskbid (
+	currencyPair	text	not null,
+	buy	double precision not null,
+	sell	double precision not null,
+	time	timestamptz	not null
+);
+
+select create_hypertable('cpsaskbid', 'time');
