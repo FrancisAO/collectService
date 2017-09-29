@@ -10,7 +10,9 @@ public class QueryExecuter {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void insertAskBid()
+    public void insertAskBid() {
+
+    }
 
 
 
