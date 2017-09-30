@@ -1,5 +1,6 @@
 package com.forex.collectService.validator;
 
+import com.forex.collectService.model.SingleCurrencyQueryParams;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -27,9 +28,9 @@ public class SingleCurrencyQueryParamValidator implements IQueryParamValidator {
     @PostConstruct
     private void givenValidQueryParameters() {
         validQueryParams = new HashSet<>();
-        validQueryParams.add("c");
-        validQueryParams.add("ts");
-        validQueryParams.add("cpc");
-        validQueryParams.add("sid");
+        validQueryParams.add(SingleCurrencyQueryParams.CURRENCY);
+        validQueryParams.add(SingleCurrencyQueryParams.TIMESTAMP);
+        validQueryParams.add(SingleCurrencyQueryParams.CURRENCY_COURSE);
+        validQueryParams.add(SingleCurrencyQueryParams.SERVICE_ID);
     }
 }

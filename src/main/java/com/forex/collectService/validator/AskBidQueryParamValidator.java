@@ -1,5 +1,6 @@
 package com.forex.collectService.validator;
 
+import com.forex.collectService.model.AskBidQueryParams;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -28,10 +29,10 @@ public class AskBidQueryParamValidator implements IQueryParamValidator{
     @PostConstruct
     private void givenValidQueryParameters() {
         validQueryParams = new HashSet<>();
-        validQueryParams.add("cp");
-        validQueryParams.add("sl");
-        validQueryParams.add("by");
-        validQueryParams.add("ts");
-        validQueryParams.add("sid");
+        validQueryParams.add(AskBidQueryParams.CURRENCY_PAIR);
+        validQueryParams.add(AskBidQueryParams.SELL_PRICE);
+        validQueryParams.add(AskBidQueryParams.BUY_PRICE);
+        validQueryParams.add(AskBidQueryParams.TIMESTAMP);
+        validQueryParams.add(AskBidQueryParams.SERVICE_ID);
     }
 }
