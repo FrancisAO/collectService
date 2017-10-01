@@ -15,18 +15,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @PropertySource("classpath:application-default.properties")
 @PropertySource("classpath:application-${spring.profiles.active}.properties")
 @PropertySource("file:${user.home}/.collectService/application-${spring.profiles.active}.properties")
-public class CollectServiceApplication implements CommandLineRunner {
+public class CollectServiceApplication {
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CollectServiceApplication.class, args);
 	}
 
-	@Override
-	public void run(String... strings) throws Exception {
-		jdbcTemplate.execute("INSERT INTO currencypairaskbid(currencyPair, buy, sell, time) VALUES ('EURUSD', 2.0, 2.0, now());");
-
-	}
 }

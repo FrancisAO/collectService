@@ -22,8 +22,23 @@ public class AskBidQueryParamValidator implements IQueryParamValidator{
         if(queryParameters.size() != validQueryParams.size()){
             return false;
         }
+        if(numberValuesNotValid(queryParameters)){
+            return false;
+        }
 
         return validQueryParams.containsAll(queryParameters.keySet());
+    }
+
+    private boolean numberValuesNotValid(Map<String, String> queryParameters) {
+        String sellVal = queryParameters.get(AskBidQueryParams.SELL_PRICE);
+        String buyVal = queryParameters.get(AskBidQueryParams.BUY_PRICE);
+        try {
+            Double.valueOf(sellVal);
+            Double.valueOf(buyVal);
+        } catch(NumberFormatException e){
+            return true;
+        }
+        return false;
     }
 
     @PostConstruct
